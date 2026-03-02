@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Questrial, Petrona } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const questrial = Questrial({
+  variable: "--font-heading",
   subsets: ["latin"],
+  weight: "400",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const petrona = Petrona({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Cafe Template",
-  description: "A clean template for cafe websites",
+  title: "Quiet Mug – Specialty Coffee & More",
+  description:
+    "Brewed with care, served with heart. Order ahead or come enjoy the vibe in person.",
 };
 
 export default function RootLayout({
@@ -25,8 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${questrial.variable} ${petrona.variable} bg-background text-text antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>
